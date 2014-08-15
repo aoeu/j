@@ -1,3 +1,6 @@
+# an example just file - just a makefile, with no special magic
+
+# run the create and compile recipes by default
 default: create compile
 
 # create our quine
