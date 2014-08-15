@@ -1,5 +1,0 @@
-j is a simple way to save and run project specific commands
-
-It looks upward from the current directory for a file called "just", and then runs make with that file as the Makefile.
-
-By way of example, the included just file has just a pinch of fanciful fluff.
