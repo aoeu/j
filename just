@@ -17,3 +17,7 @@ compile:
 # clean up
 clean:
 	rm -r tmp
+
+# demonstrate the use of positional arguments
+args:
+	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
