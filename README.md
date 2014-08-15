@@ -1,9 +1,11 @@
 j
 =
 
-A simple way to save and run project specific commands.
+A handy way to run project specific commands.
 
-j looks upward from the current directory for a file called "just" and then runs make with that file as the makefile. With no arguments it runs the makefile's default recipe:
+j looks upward from the current directory for a file called "just" and then runs make with that file as the makefile. j also sets the current working directory to where it found the justfile, so your commands are executed from the root of your project, instead of whatever subdirectory you happen to be in.
+
+With no arguments it runs the makefile's default recipe:
 
 `j`
 
