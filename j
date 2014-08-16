@@ -24,4 +24,4 @@ for ARG in "${@:2}"; do
 done
 
 # go!
-exec $MAKE --always-make --no-print-directory -f just $1
+exec $MAKE --always-make --no-print-directory -f just $1 MAKEFLAGS=''
