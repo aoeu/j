@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# find the fuckfile
-while [ ! -e fuck ]; do
+# find the justfile
+while [ ! -e just ]; do
   if [ "$PWD" == / ]; then
-    echo "No fuckfile found."
+    echo "No justfile found."
     exit 1
   fi
   cd ..
@@ -24,4 +24,4 @@ for ARG in "${@:2}"; do
 done
 
 # go!
-exec $MAKE --always-make --no-print-directory -f fuck $1 MAKEFLAGS=''
+exec $MAKE --always-make --no-print-directory -f just $1 MAKEFLAGS=''
