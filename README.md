@@ -1,4 +1,4 @@
-f
+j
 =
 
 A handy way to run project specific commands.
@@ -7,14 +7,14 @@ f looks upward from the current directory for a file called "fuck" and then runs
 
 With no arguments it runs the default recipe:
 
-`f`
+`j`
 
 Adding one argument specifies the recipe:
 
-`f foo`
+`j foo`
 
 Arguments after the first are exported as ARG0..N, which can be used in the justfile. To run recipe "foo" and export ARG0=bar and ARG1=baz:
 
-`f foo bar baz`
+`j foo bar baz`
 
 By way of example, the included just file has a pinch of fanciful fluff.
