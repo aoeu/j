@@ -24,3 +24,7 @@ clean:
 # demonstrate the use of positional arguments
 args:
 	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
+
+# put a symlink to j into ~/bin
+install:
+	ln -s $$PWD/j ~/bin/j
