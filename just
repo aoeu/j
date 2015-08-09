@@ -2,7 +2,7 @@
 
 # find the justfile
 while [ ! -e justfile ]; do
-  if [ "$PWD" == / ]; then
+  if [ "$PWD" = "/"  ] || [ "$PWD" = "$JUSTSTOP" ] || [ -e juststop ]; then
     echo "No justfile found."
     exit 1
   fi
