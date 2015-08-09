@@ -1,30 +1,27 @@
-# just a makefile with no special magic
+#!/bin/sh
 
-# run the create and compile recipes by default
-default: create compile
+# find the justfile
+while [ ! -e justfile ]; do
+  if [ "$PWD" == / ]; then
+    echo "No justfile found."
+    exit 1
+  fi
+  cd ..
+done
 
-# create our quine
-create:
-	mkdir -p tmp
-	echo 'int printf(const char*, ...); int main() { char *s = "int printf(const char*, ...); int main() { char *s = %c%s%c; printf(s, 34, s, 34); return 0; }"; printf(s, 34, s, 34); return 0; }' > tmp/gen0.c
+# use gmake if it exists
+if command -v gmake > /dev/null; then
+  MAKE=gmake
+else
+  MAKE=make
+fi
 
-# make sure it's really a quine
-compile:
-	cc tmp/gen0.c -o tmp/gen0
-	./tmp/gen0 > tmp/gen1.c
-	cc tmp/gen1.c -o tmp/gen1
-	./tmp/gen1 > tmp/gen2.c
-	diff tmp/gen1.c tmp/gen2.c
-	@echo 'It was a quine!'
+# export arguments so they can be used in recipes
+I=0
+for ARG in "$@"; do
+  export ARG$I=$ARG
+  I=$((I + 1))
+done
 
-# clean up
-clean:
-	rm -r tmp
-
-# demonstrate the use of positional arguments
-args:
-	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
-
-# put a symlink to j into ~/bin
-install:
-	ln -s $$PWD/j ~/bin/j
+# go!
+exec $MAKE --always-make --no-print-directory -f justfile $1 MAKEFLAGS=''
