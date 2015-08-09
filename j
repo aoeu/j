@@ -18,7 +18,7 @@ fi
 
 # export arguments so they can be used in recipes
 I=0
-for ARG in "${@:2}"; do
+for ARG in "$@"; do
   export ARG$I=$ARG
   I=$((I + 1))
 done
