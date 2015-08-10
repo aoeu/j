@@ -25,6 +25,17 @@ clean:
 args:
 	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
 
-# put a symlink to j into ~/bin
+# put symlinks to just into ~/bin
 install:
-	ln -s $$PWD/j ~/bin/j
+	ln -s $$PWD/just ~/bin/just
+	ln -s $$PWD/just ~/bin/j
+
+uninstall:
+	if test -L ~/bin/j ; then \
+		READLINK=`readlink ~/bin/j` ; \
+		if test $$READLINK = $$PWD/just ; then unlink ~/bin/j ; fi ; \
+	fi
+	if test -L ~/bin/just ; then \
+		READLINK=`readlink ~/bin/just` ; \
+		if test $$READLINK = $$PWD/just ; then unlink ~/bin/just ; fi ; \
+	fi
