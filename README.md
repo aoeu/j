@@ -11,10 +11,10 @@ With no arguments it runs the default recipe:
 
 Adding one argument specifies the recipe:
 
-`just foo`
+`just compile`
 
 Arguments after the first are exported as ARG0..N, which can be used in the justfile. To run recipe "foo" and export ARG0=bar and ARG1=baz:
 
-`just foo bar baz`
+`just compile x.c y.c`
 
 By way of example, the included justfile has a pinch of fanciful fluff.
