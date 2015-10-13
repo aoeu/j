@@ -27,6 +27,7 @@ args:
 
 # put symlinks to just into ~/bin
 install:
+	mkdir -p ~/bin
 	ln -s $$PWD/just ~/bin/just
 	ln -s $$PWD/just ~/bin/j
 
