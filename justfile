@@ -1,7 +1,11 @@
 # just a makefile with no special magic
 
-# run the create and compile recipes by default
-default: create compile
+# list all recipies by default
+default:
+	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs
+
+# make a quine and compile it
+quine: create compile
 
 # create our quine
 create:
