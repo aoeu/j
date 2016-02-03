@@ -44,3 +44,14 @@ uninstall:
 		READLINK=`readlink ~/bin/just` ; \
 		if test $$READLINK = $$PWD/just ; then unlink ~/bin/just ; fi ; \
 	fi
+
+version := 0.1.0
+tarball := just-$(version).tar.gz
+
+release:
+	rm -f $(tarball)
+	tar zcvf $(tarball) just
+
+checksum:
+	openssl dgst -rmd160 $(tarball)
+	openssl dgst -sha256 $(tarball)
