@@ -47,10 +47,14 @@ uninstall:
 
 version := 0.1.0
 tarball := just-$(version).tar.gz
+tardir  := just-$(version)
 
 release:
 	rm -f $(tarball)
-	tar zcvf $(tarball) just
+	mkdir $(tardir)
+	cp just $(tardir)
+	tar zcvf $(tarball) $(tardir)
+	rm -rf $(tardir)
 
 checksum:
 	openssl dgst -rmd160 $(tarball)
