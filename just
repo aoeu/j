@@ -18,7 +18,7 @@ fi
 
 declare -a RECIPES
 
-# export arguments after '--' uso they can be used in recipes
+# export arguments after '--' so they can be used in recipes
 I=0
 RECIPE_END=false
 for ARG in "$@"; do
