@@ -45,7 +45,7 @@ uninstall:
 		if test $$READLINK = $$PWD/just ; then unlink ~/bin/just ; fi ; \
 	fi
 
-version := 0.1.0
+version := 0.2.0
 tarball := just-$(version).tar.gz
 tardir  := just-$(version)
 
