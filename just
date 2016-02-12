@@ -19,7 +19,7 @@ fi
 declare -a RECIPES
 
 # export arguments after '--' so they can be used in recipes
-I=0
+I=1
 RECIPE_END=false
 for ARG in "$@"; do
   if [[ $RECIPE_END = true ]]; then
@@ -28,6 +28,7 @@ for ARG in "$@"; do
   else
     if [ $ARG = "--" ]; then
       RECIPE_END=true
+      shift
     else
       RECIPES+=($ARG)
     fi

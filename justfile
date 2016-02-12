@@ -27,7 +27,7 @@ clean:
 
 # demonstrate the use of positional arguments
 args:
-	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
+	@echo "I got some arguments: ARG1=$$ARG1 ARG2=$$ARG2 ARG3=$$ARG3"
 
 # put symlinks to just into ~/bin
 install:

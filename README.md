@@ -13,9 +13,9 @@ Adding one argument specifies the recipe:
 
 `just compile`
 
-Arguments after '--' are exported as ARG0, ARG1, ... ARGN, which can be used in the justfile. To run recipe "compile" and export ARG0=bar and ARG1=baz:
+Arguments after '--' are exported as ARG1, ARG2, ... ARGN, which can be used in the justfile. To run recipe "compile" and export ARG1=foo and ARG2=bar:
 
-`just compile -- bar baz`
+`just compile -- foo bar`
 
 You might want to alias `just` to `j`, so that it's even easier to run.
 
