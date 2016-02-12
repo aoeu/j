@@ -17,21 +17,16 @@ else
 fi
 
 declare -a RECIPES
+for ARG in "$@"; do
+  test $ARG =  '--'  && shift && break
+  RECIPES+=($ARG) && shift
+done
 
 # export arguments after '--' so they can be used in recipes
-I=0
-RECIPE_END=false
+I=1
 for ARG in "$@"; do
-  if [[ $RECIPE_END = true ]]; then
     export ARG$I=$ARG
     I=$((I + 1))
-  else
-    if [ $ARG = "--" ]; then
-      RECIPE_END=true
-    else
-      RECIPES+=($ARG)
-    fi
-  fi
 done
 
 # go!
