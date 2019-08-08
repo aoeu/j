@@ -29,30 +29,30 @@ clean:
 args:
 	@echo "I got some arguments: ARG0=$$ARG0 ARG1=$$ARG1 ARG2=$$ARG2"
 
-# put symlinks to just into ~/bin
+# put symlinks to must into ~/bin
 install:
 	mkdir -p ~/bin
-	ln -s $$PWD/just ~/bin/just
-	ln -s $$PWD/just ~/bin/j
+	ln -s $$PWD/must ~/bin/must
+	ln -s $$PWD/must ~/bin/m
 
 uninstall:
-	if test -L ~/bin/j ; then \
-		READLINK=`readlink ~/bin/j` ; \
-		if test $$READLINK = $$PWD/just ; then unlink ~/bin/j ; fi ; \
+	if test -L ~/bin/m ; then \
+		READLINK=`readlink ~/bin/m` ; \
+		if test $$READLINK = $$PWD/must ; then unlink ~/bin/m ; fi ; \
 	fi
-	if test -L ~/bin/just ; then \
-		READLINK=`readlink ~/bin/just` ; \
-		if test $$READLINK = $$PWD/just ; then unlink ~/bin/just ; fi ; \
+	if test -L ~/bin/must ; then \
+		READLINK=`readlink ~/bin/must` ; \
+		if test $$READLINK = $$PWD/must ; then unlink ~/bin/must ; fi ; \
 	fi
 
 version := 0.2.0
-tarball := just-$(version).tar.gz
-tardir  := just-$(version)
+tarball := must-$(version).tar.gz
+tardir  := must-$(version)
 
 release:
 	rm -f $(tarball)
 	mkdir $(tardir)
-	cp just $(tardir)
+	cp must $(tardir)
 	tar zcvf $(tarball) $(tardir)
 	rm -rf $(tardir)
 

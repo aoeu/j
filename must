@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# cd upwards to the justfile
-while [[ ! -e justfile ]]; do
-  if [[ $PWD = / ]] || [[ $PWD = $JUSTSTOP ]] || [[ -e juststop ]]; then
-    echo 'No justfile found.'
+# cd upwards to the mustfile
+while [[ ! -e mustfile ]]; do
+  if [[ $PWD = / ]] || [[ $PWD = $MUSTSTOP ]] || [[ -e muststop ]]; then
+    echo 'No mustfile found.'
     exit 1
   fi
   cd ..
@@ -35,4 +35,4 @@ for ARG in "$@"; do
 done
 
 # go!
-exec $MAKE MAKEFLAGS='' --always-make --no-print-directory -f justfile ${RECIPES[*]}
+exec $MAKE MAKEFLAGS='' --always-make --no-print-directory -f mustfile ${RECIPES[*]}
