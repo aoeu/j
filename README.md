@@ -26,3 +26,10 @@ getting must
 ------------
 
 `must` is a self-contained shell script that only depends on make and bash. You can download it from github and put it wherever you put your scripts.
+
+history
+-------
+`must` is a renamed (and possibly the only surviving fork) of a previous incarnation of [just](github.com/casey/just).
+As observable from the `git` commit history of `must`, `just` was once a shell-script wrapper for `make`. Later, `just` was rewritten (from scratch) as a stand-alone Rust program that supports many languages for use in `make`-influenced recipes. 
+
+`must` is a result (more precisely, a rename, and resurrection of `just`) from the maintainer working heavily in a monolithic repository where the `Makefile` was already in use, committed in VCS, and broken, all while simultaneously dealing with a (maintainer-imposed) bug in modern `just` where every recipe of the `justfile` was executing as root (somehow) and leading to mostly-harmless havoc. So, an old fork of the previous incarnation of `just` was resurreceted and renamed as `must` (using `mustfile`s) with the `m` in `must` being a head-nod to `just`s original roots as a `make` wrapper, the name `must` also being a reference compulsory tendencies while computing, and lastly (and most critically) as something to fallback on in the mono-repo while trying to fix the Makefile, debug `just` / the justfile, and just make all the things work.
