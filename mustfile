@@ -29,6 +29,10 @@ clean:
 args:
 	@echo "the first, second, and third arguments: ARG1=$$ARG1 ARG2=$$ARG2 ARG3=$$ARG3"
 
+assign_var_from_arg:
+	$(eval name=${ARG1})
+	@echo "assigned ARG1's value to the variable named 'name' : ${name}"
+
 # put symlinks to must into ~/bin
 install:
 	mkdir -p ~/bin
