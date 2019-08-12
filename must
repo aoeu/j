@@ -23,7 +23,7 @@ I=1
 RECIPE_END=false
 for ARG in "$@"; do
   if [[ $RECIPE_END = true ]]; then
-    export ARG$I=$ARG
+    export ARG$I="$ARG"
     I=$((I + 1))
   else
     if [ $ARG = "--" ]; then
