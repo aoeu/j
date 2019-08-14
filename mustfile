@@ -28,6 +28,7 @@ clean:
 # demonstrate the use of positional arguments
 args:
 	@echo "the first, second, and third arguments: ARG1=$$ARG1 ARG2=$$ARG2 ARG3=$$ARG3"
+	@echo "all arguments are: $$ARGS"
 
 assign_var_from_arg:
 	$(eval name=${ARG1})

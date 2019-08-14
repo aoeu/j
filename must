@@ -17,6 +17,7 @@ else
 fi
 
 declare -a RECIPES
+declare -a ALL_ARGS
 
 # export arguments after '--' so they can be used in recipes
 I=1
@@ -25,6 +26,7 @@ for ARG in "$@"; do
   if [[ $RECIPE_END = true ]]; then
     export ARG$I="$ARG"
     I=$((I + 1))
+    ALL_ARGS+=($ARG)
   else
     if [ $ARG = "--" ]; then
       RECIPE_END=true
@@ -33,6 +35,8 @@ for ARG in "$@"; do
     fi
   fi
 done
+
+export ARGS="${ALL_ARGS[*]}"
 
 # go!
 exec $MAKE MAKEFLAGS='' --always-make --no-print-directory -f mustfile ${RECIPES[*]}
